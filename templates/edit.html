@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1 style="width: 100%">
+    {% block title %} Edit {{ patient.name }}'s Details
+    {% endblock %}
+</h1>
+<form method="post">
+    <p>
+        <label for="name">Name</label>
+        <input type="text" name="name"
+               value={{ patient.name }}
+               placeholder="Name" required>
+    </p>
+
+    <p>
+        <label for="contact_number">Phone Number</label>
+        <input type="text" name="contact_number"
+               value={{ patient.contact_number }}
+               placeholder="Phone Number" required>
+    </p>
+    <p>
+        <label for="aadhaar_number">Aadharcard Number</label>
+        <input type="text" name="aadhaar_number"
+               value={{ patient.aadhaar_number }}
+               placeholder="Aadharcard Number" required>
+    </p>
+    <p>
+        <label for="age">Age</label>
+        <input type="number" name="age"
+               value={{ patient.age }}
+               placeholder="Age" required>
+    </p>
+    <p>
+        <label for="bed_type">Bed Type</label>
+        <input type="text" name="bed_type"
+               value={{ patient.bed_type }}
+               placeholder="Bed Type" required>
+    </p>
+
+    <p>
+        <label for="address">Address</label>
+        <input type="text" name="address"
+               value={{ patient.address }}
+               placeholder="Address" required>
+    </p>
+
+    <p>
+        <label for="state">State</label>
+        <input type="text" name="state"
+               value={{ patient.state }}
+               placeholder="State" required>
+    </p>
+    <p>
+        <label for="city">City</label>
+        <input type="text" name="city"
+               value={{ patient.city }}
+               placeholder="City" required>
+    </p>
+    </p>
+    <p>
+        <label for="status">Admission Status</label>
+        <input type="text" name="status"
+               value={{ patient.status }}
+               placeholder="Status" required>
+    </p>
+    <p>
+        <label for="problems">Problems</label>
+        <br>
+        <textarea name="problems"
+                  placeholder="problems"
+                  rows="15"
+                  cols="60"
+                  required
+        >{{ patient.problems }}</textarea>
+    </p>
+    <p>
+        <button type="submit">Submit</button>
+    </p>
+</form>
+{% endblock %}

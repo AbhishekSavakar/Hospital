@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} {% endblock %} - FlaskApp</title>
+    <style>
+        .title {
+            margin: 5px;
+        }
+
+        .content {
+            margin: 5px;
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+
+        .patient {
+            flex: 20%;
+            padding: 10px;
+            margin: 5px;
+            background-color: #BDF2D5;
+            inline-size: 100%;
+        }
+
+        .problems {
+            padding: 10px;
+            margin: 5px;
+            background-color: #B7E5DD;
+            color: #06283D;
+        }
+
+        .name a {
+            color: #2C3639;
+            text-decoration: none;
+        }
+
+        nav a {
+            color: #1B2430;
+            font-size: 2em;
+            margin-left: 50px;
+            text-decoration: none;
+        }
+
+header h1 {
+  font-size: 70px;
+  font-weight: 600;
+  background-image: conic-gradient(#06113C 30%, #251D3A 40%, #251D3A 70%, #251D3A 80%, #1A3C40);
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+    </style>
+</head>
+<body text="#06283D" bgcolor="#E8F9FD">
+    <header>
+        <h1>Anandi Gopal Joshi Hospital</h1>
+    </header>
+<nav>
+    <a href="{{ url_for('index') }}">Home</a>
+    <a href="#">Facilities</a>
+    <a href="#">Doctors</a>
+    <a href="#">Pharmacy</a>
+</nav>
+<hr>
+<div class="content">
+    {% block content %} {% endblock %}
+</div>
+<style>
+    div.fixed {
+position: fixed;
+width: 99%;
+bottom: 10px;
+border: 3px  #8AC007;
+}
+
+</style>
+<hr>
+    <br>
+<div class="fixed" style="position: relative;">
+    <center>
+        <nav>
+            <a href="{{ url_for('index') }}">Home</a>
+            <a href="{{ url_for('create') }}">Add New patient</a>
+            <a href="#">About</a>
+        </nav>
+    </center>
+    <div class="fixed" style="position: relative;">
+        <br>
+        TEST (C) 2022
+    </div>
+</div>
+</div>
+</body>
+</html>

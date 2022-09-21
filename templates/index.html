@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1 class="title">{% block title %} Patients{% endblock %}</h1>
+<div class="content">
+    {% for patient in patients %}
+    <div style="color: #3C2C3E" class="patient">
+        <p><b>#{{ patient.id }}</b></p>
+        <b>
+            <p class="name">
+                <a href="{{ url_for('patient_id', id=patient.id)}}">
+                    {{ patient.name }}
+                </a>
+            </p>
+        </b>
+        <p>Admission Status: {{ patient.status }}</p>
+        <p>Aadhar Card Number: {{ patient.aadhaar_number }}</p>
+        <p>Joined: {{ patient.created_at }}</p>
+        <div class="problems">
+            <h4>Problems</h4>
+            <p>{{ patient.problems }}</p>
+        </div>
+        <a href="{{ url_for('edit', id=patient.id) }}" style="color: #3A5BA0">Edit</a>
+
+        <hr>
+        <form method="POST"
+              action="{{ url_for('delete', id=patient.id) }}">
+            <input type="submit" value="Delete Patient"
+                   onclick="return confirm('Are you sure you want to delete this entry?')">
+        </form>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

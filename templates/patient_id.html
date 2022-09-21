@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<span class="title">
+        <h1>{% block title %} {{ patient.name }}{% endblock %}</h1>
+    </span>
+<div style="color: #3C2C3E" class="content">
+    <div style="color: #3C2C3E" class="patient">
+        <p><b>#{{ patient.id }}</b></p>
+        <b>
+            <p class="name">{{ patient.name }}</p>
+        </b>
+        <p>Admission Status: {{ patient.status }}</p>
+        <p>Aadhar Card Number: {{ patient.aadhaar_number }}</p>
+        <p>Joined: {{ patient.created_at }}</p>
+        <div class="problems">
+            <h4>Problems</h4>
+            <p>{{ patient.problems }}</p>
+        </div>
+    </div>
+</div>
+{% endblock %}
